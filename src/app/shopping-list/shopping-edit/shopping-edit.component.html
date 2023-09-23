@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="cold-md-12">
+        <form (ngSubmit)="addItem(f)" #f="ngForm">
+           <div class="row" >
+                <div class="form-group col-md-6">
+                    <label for="Name">Name</label>
+                    <input
+                     type="text" 
+                     id="name" 
+                     class="form-control"
+                     name="name"
+                     ngModel
+                     required
+                     >
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="amount">amount</label>
+                    <input
+                     type="number" 
+                     id="amount" 
+                     class="form-control"
+                     name="amount"
+                     ngModel
+                     required
+                     >
+                </div>
+           </div>
+
+           <div class="row">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary ml-2" [disabled]="!f.valid"> {{editMode? 'Update': 'Add'}}</button>
+                <button class="btn btn-info ml-2" type="button" (click)="onDelete()" *ngIf="editMode"> delete</button>
+                <button class="btn btn-danger ml-2" type="button" (click)="onClear()"> clear</button>
+            </div>
+           </div>
+
+
+        </form>
+    </div>
+</div>

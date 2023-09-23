@@ -1,0 +1,81 @@
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-success" type="submit" [disabled]="!recipeForm.valid"> save</button>
+    
+            <button class="btn btn-danger ml-3" type="button" (click)="onCancel()"> cancel</button>
+        </div>
+    
+        <div class="col-md-12 form-group">
+           <label for="Name">Name</label>
+           <input
+            type="text" 
+            name="Name"
+             id="Name" 
+             class="form-control"
+            formControlName="name"
+             >
+        </div>
+    
+        <div class="col-md-12 form-group">
+            <label for="imagePath">image Url</label>
+            <input
+             type="text" 
+             name="imagePath"
+              id="imagePath"
+               class="form-control"
+               formControlName="imagePath"
+               #imagePath
+               >
+         </div>
+
+         <div class="col-md-12 form-group" style=" height: 200px;">
+            <img [src]="imagePath.value" alt="" class="w-100 h-100">
+         </div>
+    
+         <div class="col-md-12 form-group">
+            <label for="Description">Description</label>
+            <textarea 
+                type="text" 
+                name="Description" 
+                id="Description" 
+                class="form-control"
+                rows="5"
+                formControlName="description"
+                >
+            </textarea>
+         </div>
+    
+    
+         <div class="col-md-12" formArrayName="ingredients">
+            <div 
+            class="row mt-2"
+            *ngFor="let ingredientCtrl of hobbies.controls; let i=index"
+            [formGroupName]="i"
+            >
+                <div class="col-md-7 form-group">
+                    <input type="text" class="form-control" name="name" formControlName="name">
+                </div>
+    
+                <div class="col-md-3 form-group">
+                    <input 
+                    type="number"
+                     id="amount" 
+                     name="amount" 
+                    class="form-control"
+                    formControlName="amount"
+                    >
+                </div>
+    
+                <div class="col-md-2 form-group">
+                    <button class="btn btn-danger" (click)="DeleteIngredient(i)">X</button>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-success" (click)="addIngredient()">Add ingredient</button>
+         </div>
+    </div>
+    
+</form>

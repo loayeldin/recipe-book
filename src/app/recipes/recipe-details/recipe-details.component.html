@@ -1,0 +1,53 @@
+
+    <div class="row">
+        <div class="col-md-12" style="height: 200px;">
+            <img [src]="recipe.imagePath" alt="" class="w-100 h-100">
+        </div>
+    </div>
+
+    <div class="row mt-1">
+        <div class="col-md-12">
+            <h1>{{recipe.name}}</h1>
+        </div>
+    </div>
+    
+    <div class="row mt-1">
+        <div class="col-md-12">
+            {{recipe.description}}
+        </div>
+    </div>
+    
+    
+    <div class="row mt-1">
+        <div class="col-md-12">
+           <!-- Example single danger button -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                Action
+                </button>
+                <div class="dropdown-menu">
+                <a class="dropdown-item" (click)="addToShoppingList()">add to shoppingList</a>
+                <a class="dropdown-item" (click)="editRecipe()">edit Recipe</a>
+                <a class="dropdown-item" (click)="DeleteRecipe()" >delete Recipe</a>
+                
+            </div>
+        </div>
+    </div>
+    
+    
+    
+   
+        <div class="col-md-12 mt-1">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+                    <a>
+                        {{ingredient.name}} ({{ingredient.amount}})
+                    </a>
+                </li>
+              </ul>
+        </div>
+    
+    
+    
+    
+
