@@ -7,4 +7,6 @@
 .navbar-brand
 {
     font-size: 22px;
+    color: white !important;
+    cursor: pointer;
 }
